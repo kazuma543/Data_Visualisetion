@@ -3,17 +3,18 @@ import plotly.express as px
 
 #Create a D6.
 die_1 = Dice()
-die_2 = Dice(10)
+die_2 = Dice()
+
 
 #MAke some rolls, and store results in a list.
 results = []
-for roll_num in range(50_000):
-    result = die_1.roll() + die_2.roll()
+for roll_num in range(1000):
+    result = die_1.roll() * die_2.roll() 
     results.append(result)
 
 #Analyse the results.
 frequencies = []
-max_result = die_1.num_sides + die_2.num_sides
+max_result = die_1.num_sides + die_2.num_sides 
 poss_results = range(2, max_result+1)
 for value in poss_results:
     frequency = results.count(value)
